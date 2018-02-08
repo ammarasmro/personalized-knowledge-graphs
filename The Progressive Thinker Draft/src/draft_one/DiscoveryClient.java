@@ -1,6 +1,13 @@
 package draft_one;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -22,6 +29,8 @@ public class DiscoveryClient {
 	String environmentId;
 	String collectionId;
 	
+	boolean useMockData = true;
+	
 	public DiscoveryClient() {
 		
 		discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/");
@@ -33,17 +42,46 @@ public class DiscoveryClient {
 	}
 	
 	public JsonArray queryDispatcher(String query) {
-		QueryOptions.Builder queryBuilder = new QueryOptions.Builder(environmentId, collectionId);
-		queryBuilder.query(query);
-		QueryResponse queryResponse = discovery.query(queryBuilder.build()).execute();
-		List<QueryResult> results = queryResponse.getResults();
-	    String jsonRes = new Gson().toJson(results);
-	    JsonElement jelement = new JsonParser().parse(jsonRes);
+		String jsonRes = "";
+		if(useMockData) {
+			jsonRes = getMockDataFromFile();
+		} else {
+			QueryOptions.Builder queryBuilder = new QueryOptions.Builder(environmentId, collectionId);
+			queryBuilder.query(query);
+			QueryResponse queryResponse = discovery.query(queryBuilder.build()).execute();
+			List<QueryResult> results = queryResponse.getResults();
+			
+		    jsonRes = new Gson().toJson(results);
+		}
+	    
+		JsonElement jelement = new JsonParser().parse(jsonRes);
 	    JsonArray jarray = jelement.getAsJsonArray();
-        
-//	    System.out.println(jarray.get(0).getAsJsonObject().get("enriched_text").getAsJsonObject().get("semantic_roles").getAsJsonArray().toString());
-//        System.out.println(jarray.get(0).getAsJsonObject().get("enriched_text").getAsJsonObject().get("semantic_roles").getAsJsonArray().get(0).getAsJsonObject().get("subject").toString());
         return jarray;
+	}
+	
+	public String getMockDataFromFile() {
+		String jsonRes = "";
+		Path file = Paths.get("the-file-name.txt");
+		try {
+			StringBuilder sb = new StringBuilder();
+			for(String line: Files.readAllLines(file, Charset.forName("UTF-8")))
+				sb.append(line);
+			jsonRes = sb.toString();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		return jsonRes;
+	}
+	
+	public void writeMockDataToFile(String jsonRes) {
+		Path file = Paths.get("the-file-name.txt");
+	    List<String> temp = Arrays.asList(jsonRes);
+	    try {
+			Files.write(file, temp, Charset.forName("UTF-8"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public List<DiscoveryDocument> extractDocuments(JsonArray jarray) {
