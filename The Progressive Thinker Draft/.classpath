@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/IBM Watson/jars/java-sdk-4.2.1-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/stanford-corenlp-3.8.0.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/ejml-0.23.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/javax.json-api-1.0-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/javax.json.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/joda-time-2.9-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/joda-time.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/jollyday-0.4.9-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/jollyday.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/protobuf.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/slf4j-simple.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/stanford-corenlp-3.8.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/stanford-corenlp-3.8.0-models.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/stanford-corenlp-3.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/xom-1.2.10-src.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Software/NLP/stanford-corenlp-full-2017-06-09/xom.jar"/>
+	<classpathentry kind="lib" path="/Users/ammarasmro/Downloads/neo4j-java-driver-1.5.0-rc1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
