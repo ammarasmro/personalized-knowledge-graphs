@@ -33,9 +33,9 @@ public class SemanticRole {
 	
 	public void processJsonElementToTriplet(JsonObject jsonObject) {
 		sentence = jsonObject.get("sentence").toString();
-		subject = jsonObject.get("subject").getAsJsonObject().get("text").toString();
-		verb = jsonObject.get("action").getAsJsonObject().get("text").toString();
-		object = jsonObject.get("object").getAsJsonObject().get("text").toString();
+		subject = jsonObject.get("subject").getAsJsonObject().get("text").getAsString();
+		verb = jsonObject.get("action").getAsJsonObject().get("text").getAsString();
+		object = jsonObject.get("object").getAsJsonObject().get("text").getAsString();
 //		triplet = new Triplet(subject, verb, object);
 		
 		richSubject = new RichTextNode(subject);
