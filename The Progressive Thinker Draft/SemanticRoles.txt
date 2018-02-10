@@ -1,0 +1,27 @@
+"Automotive design" ---- "is" ----> "a set of typically non-professional[1] vocations or occupations involved in the development of the appearance" 
+Keywords with subject: ["Automotive design"]
+Keywords with object: ["occupations", "set", "vocations", "appearance"]
+"vocations or occupations" ---- "involved" ----> "in the development of the appearance, and to some extent the ergonomics, of motor vehicles or more specifically road vehicles" 
+Keywords with subject: ["occupations", "vocations"]
+Keywords with object: ["motor vehicles", "extent", "ergonomics", "specifically road vehicles"]
+"by a large team" ---- "done" ----> "The functional design and development of a modern motor vehicle" 
+Keywords with subject: ["large team"]
+Keywords with object: ["modern motor vehicle", "functional design", "development"]
+"Automotive suspension design" ---- "is" ----> "an aspect of automotive engineering" 
+Keywords with subject: ["Automotive suspension design"]
+Keywords with object: ["automotive engineering", "aspect"]
+"the suspension" ---- "designing" ----> "for cars and trucks" 
+Keywords with subject: ["suspension"]
+Keywords with object: ["cars", "trucks"]
+"Suspension design for other vehicles" ---- "is" ----> "similar" 
+Keywords with subject: ["Suspension design", "vehicles"]
+Keywords with object: []
+"An automotive battery" ---- "is" ----> "a rechargeable battery that supplies electrical energy to a motor vehicle" 
+Keywords with subject: ["automotive battery"]
+Keywords with object: ["motor vehicle", "electrical energy", "rechargeable battery"]
+"a rechargeable battery" ---- "supplies" ----> "electrical energy" 
+Keywords with subject: ["rechargeable battery"]
+Keywords with object: ["electrical energy"]
+"It" ---- "is also known" ----> "as an SLI battery (starting-lighting-ignition) [1" 
+Keywords with subject: []
+Keywords with object: ["SLI battery", "starting-lighting-ignition"]

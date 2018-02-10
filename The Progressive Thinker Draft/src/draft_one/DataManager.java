@@ -1,17 +1,30 @@
 package draft_one;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import static java.nio.file.StandardOpenOption.*;
+import java.nio.file.*;
+import java.io.*;
+
 
 public class DataManager {
 	private List<String> sentences;
 	private List<SemanticRole> semanticRoles;
 	private List<Triplet> triplets;
+	private List<Triplet> semanticRolesTriplets;
 	private List<Triplet> openIETriplets;
 	private List<Triplet> corefTriplets;
 	private Map<Keyword, List<Triplet>> keywordsMap;
@@ -26,6 +39,7 @@ public class DataManager {
 		sentences = new ArrayList<String>();
 		semanticRoles = new ArrayList<SemanticRole>();
 		triplets = new ArrayList<Triplet>();
+		semanticRolesTriplets = new ArrayList<Triplet>();
 		openIETriplets = new ArrayList<Triplet>();
 		corefTriplets = new ArrayList<Triplet>();
 		keywordsMap = new HashMap<Keyword, List<Triplet>>();
@@ -81,9 +95,12 @@ public class DataManager {
 	}
 	
 	public void gatherTripletsIntoMainTripletSet() {
-		tripletSet.addAll(extractTripletsAndSentenceFromSemanticRoles());
-		tripletSet.addAll(getOpenIETripletsFromSentences());
-		tripletSet.addAll(getCorefTripletsFromSentences());
+		semanticRolesTriplets.addAll(extractTripletsAndSentenceFromSemanticRoles());
+		tripletSet.addAll(semanticRolesTriplets);
+		openIETriplets.addAll(getOpenIETripletsFromSentences());
+		tripletSet.addAll(openIETriplets);
+		corefTriplets.addAll(getCorefTripletsFromSentences());
+		tripletSet.addAll(corefTriplets);
 	}
 	
 	private List<Triplet>  extractTripletsAndSentenceFromSemanticRoles() {
@@ -216,6 +233,33 @@ public class DataManager {
 
 	public void setTripletSet(Set<Triplet> tripletSet) {
 		this.tripletSet = tripletSet;
+	}
+	
+	public void logTriplets() {
+		writeContentToFile(prepareTripletListForLogging(semanticRolesTriplets), "SemanticRoles");
+		writeContentToFile(prepareTripletListForLogging(openIETriplets), "OpenIETriplets");
+		writeContentToFile(prepareTripletListForLogging(corefTriplets), "CorefTriplets");
+		writeContentToFile(prepareTripletListForLogging(tripletSet), "Triplets");
+	}
+	
+	public String prepareTripletListForLogging(Collection<Triplet> listOfTriples) {
+		StringBuilder sb = new StringBuilder();
+		for(Triplet triplet: listOfTriples) {
+			sb.append(triplet.toString());
+		}
+		return sb.toString();
+	}
+	
+	public void writeContentToFile(String content, String filename) {
+		
+		byte data[] = content.getBytes();
+		Path file = Paths.get(filename + ".txt");
+		try (OutputStream out = new BufferedOutputStream(
+			      Files.newOutputStream(file, CREATE, APPEND))) {
+			      out.write(data, 0, data.length);
+			    } catch (IOException x) {
+			      System.err.println(x);
+			    }
 	}
 
 	public void printKeywordsMap() {

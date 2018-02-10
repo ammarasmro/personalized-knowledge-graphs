@@ -1,0 +1,414 @@
+Automotive design ---- is set of ----> non-professional 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+road vehicles ---- is ----> more 
+Keywords with subject: [road vehicles]
+Keywords with object: []
+Automotive design ---- is ----> set 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+Automotive design ---- is set of ----> typically non-professional 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+Automotive design ---- is set of ----> non-professional 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+road vehicles ---- is ----> more 
+Keywords with subject: [road vehicles]
+Keywords with object: []
+Automotive design ---- is ----> set 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+Automotive design ---- is set of ----> typically non-professional 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+design ---- is ----> functional 
+Keywords with subject: [design]
+Keywords with object: []
+design ---- is ----> done 
+Keywords with subject: [design]
+Keywords with object: []
+functional design ---- is ----> done by team from many different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [different disciplines, team]
+functional design ---- is ----> typically done by large team from many different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [large team, different disciplines]
+large team ---- is from ----> many different disciplines 
+Keywords with subject: [large team]
+Keywords with object: [different disciplines]
+disciplines ---- is from ----> many 
+Keywords with subject: [disciplines]
+Keywords with object: []
+design ---- is ----> typically done by large team from many different disciplines 
+Keywords with subject: [design]
+Keywords with object: [large team, different disciplines]
+functional design ---- is ----> typically done by team from different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [different disciplines, team]
+design ---- is ----> done by team from many different disciplines 
+Keywords with subject: [design]
+Keywords with object: [different disciplines, team]
+functional design ---- is ----> done by team from different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [different disciplines, team]
+functional design ---- is ----> done by large team from many different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [large team, different disciplines]
+functional design ---- is ----> done 
+Keywords with subject: [functional design]
+Keywords with object: []
+design ---- is ----> typically done by team from many different disciplines 
+Keywords with subject: [design]
+Keywords with object: [different disciplines, team]
+disciplines ---- is from ----> different 
+Keywords with subject: [disciplines]
+Keywords with object: []
+design ---- is ----> typically done by team from different disciplines 
+Keywords with subject: [design]
+Keywords with object: [different disciplines, team]
+design ---- is ----> done by large team from many different disciplines 
+Keywords with subject: [design]
+Keywords with object: [large team, different disciplines]
+design ---- is ----> done by large team from different disciplines 
+Keywords with subject: [design]
+Keywords with object: [large team, different disciplines]
+functional design ---- is ----> typically done by team from many different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [different disciplines, team]
+motor vehicle ---- is of ----> modern 
+Keywords with subject: [motor vehicle]
+Keywords with object: []
+functional design ---- is ----> typically done 
+Keywords with subject: [functional design]
+Keywords with object: []
+team ---- is by ----> large 
+Keywords with subject: [team]
+Keywords with object: []
+design ---- is ----> typically done by large team from different disciplines 
+Keywords with subject: [design]
+Keywords with object: [large team, different disciplines]
+engineering ---- is within ----> automotive 
+Keywords with subject: [engineering]
+Keywords with object: []
+design ---- is ----> typically done 
+Keywords with subject: [design]
+Keywords with object: []
+design ---- is ----> done by team from different disciplines 
+Keywords with subject: [design]
+Keywords with object: [different disciplines, team]
+functional design ---- is ----> done by large team from different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [large team, different disciplines]
+functional design ---- is ----> typically done by large team from different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [large team, different disciplines]
+Automotive suspension design ---- is ----> aspect of engineering concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect, engineering]
+suspension ---- is for ----> cars 
+Keywords with subject: [suspension]
+Keywords with object: [cars]
+Automotive suspension design ---- is aspect of ----> automotive engineering 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [automotive engineering]
+Automotive suspension design ---- is ----> aspect of automotive engineering concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [automotive engineering, aspect]
+engineering ---- is of ----> automotive 
+Keywords with subject: [engineering]
+Keywords with object: []
+Automotive suspension design ---- is ----> aspect concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect]
+Automotive suspension design ---- is ----> aspect 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect]
+Automotive suspension design ---- is aspect of ----> engineering 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [engineering]
+Automotive suspension design ---- is ----> aspect of engineering concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect, engineering]
+suspension ---- is for ----> cars 
+Keywords with subject: [suspension]
+Keywords with object: [cars]
+Automotive suspension design ---- is aspect of ----> automotive engineering 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [automotive engineering]
+Automotive suspension design ---- is ----> aspect of automotive engineering concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [automotive engineering, aspect]
+engineering ---- is of ----> automotive 
+Keywords with subject: [engineering]
+Keywords with object: []
+Automotive suspension design ---- is ----> aspect concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect]
+Automotive suspension design ---- is ----> aspect 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect]
+Automotive suspension design ---- is aspect of ----> engineering 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [engineering]
+Suspension design ---- is for ----> other vehicles 
+Keywords with subject: [Suspension design]
+Keywords with object: [vehicles]
+vehicles ---- is for ----> other 
+Keywords with subject: [vehicles]
+Keywords with object: []
+energy ---- is ----> electrical 
+Keywords with subject: [energy]
+Keywords with object: []
+battery ---- is ----> rechargeable 
+Keywords with subject: [battery]
+Keywords with object: []
+battery ---- is ----> automotive 
+Keywords with subject: [battery]
+Keywords with object: []
+battery ---- is ----> rechargeable 
+Keywords with subject: [battery]
+Keywords with object: []
+energy ---- is ----> electrical 
+Keywords with subject: [energy]
+Keywords with object: []
+battery ---- is ----> rechargeable 
+Keywords with subject: [battery]
+Keywords with object: []
+battery ---- is ----> automotive 
+Keywords with subject: [battery]
+Keywords with object: []
+battery ---- is ----> rechargeable 
+Keywords with subject: [battery]
+Keywords with object: []
+It ---- is ----> also known 
+Keywords with subject: []
+Keywords with object: []
+It ---- is also known as ----> SLI battery 
+Keywords with subject: []
+Keywords with object: [SLI battery]
+It ---- is also known as ----> starting-lighting-ignition 
+Keywords with subject: []
+Keywords with object: [starting-lighting-ignition]
+It ---- is known as ----> SLI battery 
+Keywords with subject: []
+Keywords with object: [SLI battery]
+It ---- is ----> known 
+Keywords with subject: []
+Keywords with object: []
+It ---- is known as ----> starting-lighting-ignition 
+Keywords with subject: []
+Keywords with object: [starting-lighting-ignition]
+its purpose ---- start ----> engine 
+Keywords with subject: [purpose]
+Keywords with object: [engine]
+its main purpose ---- start ----> engine 
+Keywords with subject: [main purpose]
+Keywords with object: [engine]
+Automotive design ---- is set of ----> non-professional 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+road vehicles ---- is ----> more 
+Keywords with subject: [road vehicles]
+Keywords with object: []
+Automotive design ---- is ----> set 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+Automotive design ---- is set of ----> typically non-professional 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+Automotive design ---- is set of ----> non-professional 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+road vehicles ---- is ----> more 
+Keywords with subject: [road vehicles]
+Keywords with object: []
+Automotive design ---- is ----> set 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+Automotive design ---- is set of ----> typically non-professional 
+Keywords with subject: [Automotive design]
+Keywords with object: []
+design ---- is ----> functional 
+Keywords with subject: [design]
+Keywords with object: []
+design ---- is ----> done 
+Keywords with subject: [design]
+Keywords with object: []
+functional design ---- is ----> done by team from many different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [different disciplines, team]
+functional design ---- is ----> typically done by large team from many different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [large team, different disciplines]
+large team ---- is from ----> many different disciplines 
+Keywords with subject: [large team]
+Keywords with object: [different disciplines]
+disciplines ---- is from ----> many 
+Keywords with subject: [disciplines]
+Keywords with object: []
+design ---- is ----> typically done by large team from many different disciplines 
+Keywords with subject: [design]
+Keywords with object: [large team, different disciplines]
+functional design ---- is ----> typically done by team from different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [different disciplines, team]
+design ---- is ----> done by team from many different disciplines 
+Keywords with subject: [design]
+Keywords with object: [different disciplines, team]
+functional design ---- is ----> done by team from different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [different disciplines, team]
+functional design ---- is ----> done by large team from many different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [large team, different disciplines]
+functional design ---- is ----> done 
+Keywords with subject: [functional design]
+Keywords with object: []
+design ---- is ----> typically done by team from many different disciplines 
+Keywords with subject: [design]
+Keywords with object: [different disciplines, team]
+disciplines ---- is from ----> different 
+Keywords with subject: [disciplines]
+Keywords with object: []
+design ---- is ----> typically done by team from different disciplines 
+Keywords with subject: [design]
+Keywords with object: [different disciplines, team]
+design ---- is ----> done by large team from many different disciplines 
+Keywords with subject: [design]
+Keywords with object: [large team, different disciplines]
+design ---- is ----> done by large team from different disciplines 
+Keywords with subject: [design]
+Keywords with object: [large team, different disciplines]
+functional design ---- is ----> typically done by team from many different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [different disciplines, team]
+motor vehicle ---- is of ----> modern 
+Keywords with subject: [motor vehicle]
+Keywords with object: []
+functional design ---- is ----> typically done 
+Keywords with subject: [functional design]
+Keywords with object: []
+team ---- is by ----> large 
+Keywords with subject: [team]
+Keywords with object: []
+design ---- is ----> typically done by large team from different disciplines 
+Keywords with subject: [design]
+Keywords with object: [large team, different disciplines]
+engineering ---- is within ----> automotive 
+Keywords with subject: [engineering]
+Keywords with object: []
+design ---- is ----> typically done 
+Keywords with subject: [design]
+Keywords with object: []
+design ---- is ----> done by team from different disciplines 
+Keywords with subject: [design]
+Keywords with object: [different disciplines, team]
+functional design ---- is ----> done by large team from different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [large team, different disciplines]
+functional design ---- is ----> typically done by large team from different disciplines 
+Keywords with subject: [functional design]
+Keywords with object: [large team, different disciplines]
+Automotive suspension design ---- is ----> aspect of engineering concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect, engineering]
+suspension ---- is for ----> cars 
+Keywords with subject: [suspension]
+Keywords with object: [cars]
+Automotive suspension design ---- is aspect of ----> automotive engineering 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [automotive engineering]
+Automotive suspension design ---- is ----> aspect of automotive engineering concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [automotive engineering, aspect]
+engineering ---- is of ----> automotive 
+Keywords with subject: [engineering]
+Keywords with object: []
+Automotive suspension design ---- is ----> aspect concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect]
+Automotive suspension design ---- is ----> aspect 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect]
+Automotive suspension design ---- is aspect of ----> engineering 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [engineering]
+Automotive suspension design ---- is ----> aspect of engineering concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect, engineering]
+suspension ---- is for ----> cars 
+Keywords with subject: [suspension]
+Keywords with object: [cars]
+Automotive suspension design ---- is aspect of ----> automotive engineering 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [automotive engineering]
+Automotive suspension design ---- is ----> aspect of automotive engineering concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [automotive engineering, aspect]
+engineering ---- is of ----> automotive 
+Keywords with subject: [engineering]
+Keywords with object: []
+Automotive suspension design ---- is ----> aspect concerned 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect]
+Automotive suspension design ---- is ----> aspect 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [aspect]
+Automotive suspension design ---- is aspect of ----> engineering 
+Keywords with subject: [Automotive suspension design]
+Keywords with object: [engineering]
+Suspension design ---- is for ----> other vehicles 
+Keywords with subject: [Suspension design]
+Keywords with object: [vehicles]
+vehicles ---- is for ----> other 
+Keywords with subject: [vehicles]
+Keywords with object: []
+energy ---- is ----> electrical 
+Keywords with subject: [energy]
+Keywords with object: []
+battery ---- is ----> rechargeable 
+Keywords with subject: [battery]
+Keywords with object: []
+battery ---- is ----> automotive 
+Keywords with subject: [battery]
+Keywords with object: []
+battery ---- is ----> rechargeable 
+Keywords with subject: [battery]
+Keywords with object: []
+energy ---- is ----> electrical 
+Keywords with subject: [energy]
+Keywords with object: []
+battery ---- is ----> rechargeable 
+Keywords with subject: [battery]
+Keywords with object: []
+battery ---- is ----> automotive 
+Keywords with subject: [battery]
+Keywords with object: []
+battery ---- is ----> rechargeable 
+Keywords with subject: [battery]
+Keywords with object: []
+It ---- is ----> also known 
+Keywords with subject: []
+Keywords with object: []
+It ---- is also known as ----> SLI battery 
+Keywords with subject: []
+Keywords with object: [SLI battery]
+It ---- is also known as ----> starting-lighting-ignition 
+Keywords with subject: []
+Keywords with object: [starting-lighting-ignition]
+It ---- is known as ----> SLI battery 
+Keywords with subject: []
+Keywords with object: [SLI battery]
+It ---- is ----> known 
+Keywords with subject: []
+Keywords with object: []
+It ---- is known as ----> starting-lighting-ignition 
+Keywords with subject: []
+Keywords with object: [starting-lighting-ignition]
+its purpose ---- start ----> engine 
+Keywords with subject: [purpose]
+Keywords with object: [engine]
+its main purpose ---- start ----> engine 
+Keywords with subject: [main purpose]
+Keywords with object: [engine]

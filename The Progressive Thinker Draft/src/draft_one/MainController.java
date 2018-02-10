@@ -31,6 +31,8 @@ public class MainController {
 		
 //		dataManager.tripletListToSet();
 		
+		dataManager.logTriplets();
+		
 		
 		dataManager.cleanseTriplets();
 		
