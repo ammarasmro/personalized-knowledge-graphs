@@ -31,10 +31,13 @@ public class MainController {
 		
 //		dataManager.tripletListToSet();
 		
-		dataManager.logTriplets();
+//		dataManager.logTriplets();
 		
 		
 		dataManager.cleanseTriplets();
+		
+		
+		dataManager.logTriplets();
 		
 		dataManager.enrichTriplets();
 		
