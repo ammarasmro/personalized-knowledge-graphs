@@ -29,7 +29,7 @@ public class DiscoveryClient {
 	String environmentId;
 	String collectionId;
 	
-	boolean useMockData = true;
+	boolean useMockData = false;
 	
 	public DiscoveryClient() {
 		
@@ -52,6 +52,7 @@ public class DiscoveryClient {
 			List<QueryResult> results = queryResponse.getResults();
 			
 		    jsonRes = new Gson().toJson(results);
+		    writeMockDataToFile(jsonRes);
 		}
 	    
 		JsonElement jelement = new JsonParser().parse(jsonRes);
@@ -74,7 +75,7 @@ public class DiscoveryClient {
 	}
 	
 	public void writeMockDataToFile(String jsonRes) {
-		Path file = Paths.get("the-file-name.txt");
+		Path file = Paths.get("howToDesignACar.txt");
 	    List<String> temp = Arrays.asList(jsonRes);
 	    try {
 			Files.write(file, temp, Charset.forName("UTF-8"));

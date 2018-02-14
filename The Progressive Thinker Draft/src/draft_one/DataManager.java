@@ -172,9 +172,8 @@ public class DataManager {
 	public void enrichTriplets() {
 		for(Triplet triplet: tripletSet) {
 			System.out.println(String.format("Enriching triplet: \n%s\n", triplet));
-			// TODO: uncomment those to reactivate IBM NLU
-//			nluClient.enrichRichNode(triplet.getSubjectTry());
-//			nluClient.enrichRichNode(triplet.getObjectTry());
+			nluClient.enrichRichNode(triplet.getSubjectTry());
+			nluClient.enrichRichNode(triplet.getObjectTry());
 		}
 	}
 	
