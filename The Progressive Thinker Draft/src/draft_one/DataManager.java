@@ -10,11 +10,16 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import trie_ds.WordTrie;
+
 import static java.nio.file.StandardOpenOption.*;
 import java.nio.file.*;
 import java.io.*;
@@ -208,11 +213,42 @@ public class DataManager {
 	public void cleanseTriplets() {
 		List<Triplet> toBeDeleted = new ArrayList<Triplet>();
 		for(Triplet triplet: tripletSet) {
-			if(subjectIsStopWord(triplet)) {
+			if(subjectIsStopWord(triplet) || tripletIsTooShort(triplet)) {
 				toBeDeleted.add(triplet);
 			}
 		}
+		toBeDeleted.addAll(processTripletsToTrie());
 		tripletSet.removeAll(toBeDeleted);
+	}
+	
+	public List<Triplet> processTripletsToTrie() {
+		List<Triplet> tripletListToBeSorted = new ArrayList<Triplet>(tripletSet);
+		List<Triplet> toBeDeleted = new ArrayList<Triplet>();
+		Collections.sort(tripletListToBeSorted, new ObjectLengthComparator());
+		Collections.sort(tripletListToBeSorted, new SubjectStringComparator());
+		WordTrie trie = new WordTrie();
+		pushSubjectsIntoTrie(trie, tripletListToBeSorted);
+		for(Triplet triplet: tripletListToBeSorted) {
+			if(trie.isPrefix(triplet.getObjectTry().getSentence(), triplet.getSubjectTry().getSentence()))
+				toBeDeleted.add(triplet);
+			else
+				trie.processSentence(triplet.getObjectTry().getSentence(), triplet.getSubjectTry().getSentence());
+		}
+		return toBeDeleted;
+	}
+	
+	public void pushSubjectsIntoTrie(WordTrie trie, List<Triplet> listOfTriplets) {
+		for(Triplet triplet: listOfTriplets) {
+			trie.addRoot(triplet.getSubjectTry().getSentence());
+		}
+	}
+	
+	public boolean tripletIsTooShort(Triplet triplet) {
+		int subjectLength = triplet.getSubjectTry().getSentence().split(" ").length;
+		int objectLength = triplet.getObjectTry().getSentence().split(" ").length;
+		if(subjectLength + objectLength < 4) 
+			return true;
+		return false;
 	}
 	
 	public boolean subjectIsStopWord(Triplet triplet) {
