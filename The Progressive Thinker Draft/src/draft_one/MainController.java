@@ -33,13 +33,14 @@ public class MainController {
 		
 //		dataManager.logTriplets();
 		
+		dataManager.extractWordToWordTriplesFromMainSet();
 		
 		dataManager.cleanseTriplets();
 		
 		
 		dataManager.logTriplets();
 		
-		dataManager.enrichTriplets();
+//		dataManager.enrichTriplets();
 		
 		for(Triplet triplet: dataManager.getTripletSet()) {
 			tripletsString += triplet + "\n";

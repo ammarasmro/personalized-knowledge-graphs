@@ -50,10 +50,10 @@ public class OpenIEClient {
 	}
 	
 	public void enrichTriplets(List<Triplet> listOfTriplets) {
-		for(Triplet triplet: listOfTriplets) {
-			nluClient.enrichRichNode(triplet.getSubjectTry());
-			nluClient.enrichRichNode(triplet.getObjectTry());
-		}
+//		for(Triplet triplet: listOfTriplets) {
+//			nluClient.enrichRichNode(triplet.getSubjectTry());
+//			nluClient.enrichRichNode(triplet.getObjectTry());
+//		}
 	}
 	
 	public String printTriple(RelationTriple relationTriple) {
