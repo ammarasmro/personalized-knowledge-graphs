@@ -84,11 +84,11 @@ public class CorefClient {
 	}
 	
 	public void enrichTriplets(List<Triplet> listOfTriplets) {
-		for(Triplet triplet: listOfTriplets) {
-			System.out.println(String.format("Enriching triplet: \n%s\n", triplet));
-			nluClient.enrichRichNode(triplet.getSubjectTry());
-			nluClient.enrichRichNode(triplet.getObjectTry());
-		}
+//		for(Triplet triplet: listOfTriplets) {
+//			System.out.println(String.format("Enriching triplet: \n%s\n", triplet));
+//			nluClient.enrichRichNode(triplet.getSubjectTry());
+//			nluClient.enrichRichNode(triplet.getObjectTry());
+//		}
 	}
 
 	public static void main(String[] args) {

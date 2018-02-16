@@ -98,12 +98,12 @@ public class GraphDispatcher implements AutoCloseable {
                 @Override
                 public String execute( Transaction tx )
                 {
-                    StatementResult result = tx.run( "CREATE (subject:Subject {subjectText: $subject}),\n" + 
-                    		"	   (object:Object {objectText: $object})\n" + 
-                    		"CREATE (subject)-[:IS {verb: $verb}]->(object)",
+                    StatementResult result = tx.run( "MERGE (subject:Subject {subjectText: $subject})\n" + 
+                    		"MERGE (object:Object {objectText: $object})\n" + 
+                    		"MERGE (subject)-[:IS {verb: $verb}]->(object)",
                             parameters( "subject", triplet.getSubjectTry().getSentence(), "object", triplet.getObjectTry().getSentence(), "verb", triplet.getVerb() ) );
                     result.consume();
-                    return "Triplet added!";
+                    return "Triplet added!\n" + triplet;
                 }
             } );
             System.out.println( greeting );
@@ -120,11 +120,11 @@ public class GraphDispatcher implements AutoCloseable {
                 @Override
                 public String execute( Transaction tx )
                 {
-                    StatementResult result = tx.run( "CREATE (keyword:Keyword {keywordText: $keyword})\n" + 
+                    StatementResult result = tx.run( "MERGE (keyword:Keyword {keywordText: $keyword})\n" + 
                     		"WITH keyword\n" + 
                     		"MATCH (project:Project)-[:HASASPECT]->(aspect:Aspect {aspectName: $aspect})\n" + 
                     		"WITH aspect, project, keyword\n" + 
-                    		"CREATE (aspect)-[:HasKeyword]->(keyword)\n" + 
+                    		"MERGE (aspect)-[:HasKeyword]->(keyword)\n" + 
                     		"RETURN project, aspect, keyword\n",
                             parameters( "keyword", keyword.getKeyword(), "project", project, "aspect", aspect ) );
                     result.consume();
@@ -134,6 +134,27 @@ public class GraphDispatcher implements AutoCloseable {
             System.out.println( greeting );
         }
     }
+	
+	public void linkKeywordToDefintion(Triplet triplet) {
+		try ( Session session = driver.session() )
+        {
+            String greeting = session.writeTransaction( new TransactionWork<String>()
+            {
+                @Override
+                public String execute( Transaction tx )
+                {
+                    StatementResult result = tx.run( "MERGE (definition:Definition {definitionText: $object})\n" + 
+                    		"MERGE (keyword:Keyword {keywordText: $subject})\n" + 
+                    		"MERGE (keyword)-[:IS {verb: $verb}]->(definition)",
+                            parameters( "subject", triplet.getSubjectTry().getSentence(), "object", triplet.getObjectTry().getSentence(), "verb", triplet.getVerb() ) );
+                    result.consume();
+                    return "Keyword relation added!\n" + triplet;
+                }
+            } );
+            System.out.println( greeting );
+            
+        }		
+	}
 	
 	public void linkListOfKeywordsToSubject(String subject, Set<Keyword> keywords) {
 		for(Keyword keyword: keywords) {
@@ -153,7 +174,7 @@ public class GraphDispatcher implements AutoCloseable {
                     StatementResult result = tx.run( "MATCH (keyword:Keyword {keywordText: $keyword})\n" + 
                     		"MATCH (subject:Subject {subjectText: $subject})\n" + 
                     		"WITH keyword, subject\n" + 
-                    		"CREATE (keyword)-[:LinksTo]->(subject)\n" + 
+                    		"MERGE (keyword)-[:LinksTo]->(subject)\n" + 
                     		"RETURN keyword, subject",
                             parameters( "keyword", keyword.getKeyword(), "subject", subject ) );
                     result.consume();
@@ -182,7 +203,7 @@ public class GraphDispatcher implements AutoCloseable {
                     StatementResult result = tx.run( "MATCH (keyword:Keyword {keywordText: $keyword})\n" + 
                     		"MATCH (object:Object {objectText: $object})\n" + 
                     		"WITH keyword, object\n" + 
-                    		"CREATE (object)-[:HasDefinition]->(keyword)\n" + 
+                    		"MERGE (object)-[:HasDefinition]->(keyword)\n" + 
                     		"RETURN keyword, object\n" + 
                     		"",
                             parameters( "keyword", keyword.getKeyword(), "object", object ) );

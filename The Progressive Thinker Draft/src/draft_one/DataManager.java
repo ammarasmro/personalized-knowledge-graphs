@@ -2,16 +2,12 @@ package draft_one;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +17,6 @@ import java.util.Set;
 import trie_ds.WordTrie;
 
 import static java.nio.file.StandardOpenOption.*;
-import java.nio.file.*;
 import java.io.*;
 
 
@@ -32,6 +27,7 @@ public class DataManager {
 	private List<Triplet> semanticRolesTriplets;
 	private List<Triplet> openIETriplets;
 	private List<Triplet> corefTriplets;
+	private List<Triplet> wordToWordTriplets;
 	private Map<Keyword, List<Triplet>> keywordsMap;
 	private Set<Keyword> keywordSet;
 	
@@ -47,6 +43,7 @@ public class DataManager {
 		semanticRolesTriplets = new ArrayList<Triplet>();
 		openIETriplets = new ArrayList<Triplet>();
 		corefTriplets = new ArrayList<Triplet>();
+		wordToWordTriplets = new ArrayList<Triplet>();
 		keywordsMap = new HashMap<Keyword, List<Triplet>>();
 		keywordSet = new HashSet<Keyword>();
 		
@@ -85,6 +82,14 @@ public class DataManager {
 		this.corefTriplets = corefTriplets;
 	}
 	
+	public List<Triplet> getWordToWordTriplets() {
+		return wordToWordTriplets;
+	}
+
+	public void setWordToWordTriplets(List<Triplet> wordToWordTriplets) {
+		this.wordToWordTriplets = wordToWordTriplets;
+	}
+
 	public Map<Keyword, List<Triplet>> getKeywordsMap() {
 		return keywordsMap;
 	}
@@ -101,11 +106,23 @@ public class DataManager {
 	
 	public void gatherTripletsIntoMainTripletSet() {
 		semanticRolesTriplets.addAll(extractTripletsAndSentenceFromSemanticRoles());
-		tripletSet.addAll(semanticRolesTriplets);
 		openIETriplets.addAll(getOpenIETripletsFromSentences());
+		enrichTriplets(openIETriplets);
 		tripletSet.addAll(openIETriplets);
 		corefTriplets.addAll(getCorefTripletsFromSentences());
+		enrichTriplets(corefTriplets);
 		tripletSet.addAll(corefTriplets);
+	}
+	
+	public void extractWordToWordTriplesFromMainSet() {
+		int subjectLength;
+		int objectLength;
+		for(Triplet triplet: tripletSet) {
+			subjectLength = triplet.getSubjectTry().getSentence().split(" ").length;
+			objectLength = triplet.getObjectTry().getSentence().split(" ").length;
+			if(subjectLength == 1 &&  objectLength == 1) 
+				wordToWordTriplets.add(triplet);
+		}
 	}
 	
 	private List<Triplet>  extractTripletsAndSentenceFromSemanticRoles() {
@@ -169,11 +186,15 @@ public class DataManager {
 		keywordSet.add(keyword);
 	}
 	
-	public void enrichTriplets() {
-		for(Triplet triplet: tripletSet) {
+	public void enrichTriplets(Collection<Triplet> collectionOfTriplets) {
+		for(Triplet triplet: collectionOfTriplets) {
 			System.out.println(String.format("Enriching triplet: \n%s\n", triplet));
+			try {
 			nluClient.enrichRichNode(triplet.getSubjectTry());
 			nluClient.enrichRichNode(triplet.getObjectTry());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -185,13 +206,13 @@ public class DataManager {
 		}
 	}
 	
-	public void processTripletsIntoSet() {
+	public void extractKeywordsIntoKeywordsSet() {
 		for(Triplet triplet: tripletSet) {
-			keywordSet.addAll(extractKeywordFromTriplet(triplet));
+			keywordSet.addAll(extractKeywordsFromTriplet(triplet));
 		}
 	}
 	
-	public List<Keyword> extractKeywordFromTriplet(Triplet triplet){
+	public List<Keyword> extractKeywordsFromTriplet(Triplet triplet){
 		List<Keyword> listOfKeywords = new ArrayList<Keyword>();
 		listOfKeywords.addAll(triplet.getSubjectTry().getKeywords());
 		listOfKeywords.addAll(triplet.getObjectTry().getKeywords());
@@ -213,11 +234,21 @@ public class DataManager {
 	public void cleanseTriplets() {
 		List<Triplet> toBeDeleted = new ArrayList<Triplet>();
 		for(Triplet triplet: tripletSet) {
-			if(subjectIsStopWord(triplet) || tripletIsTooShort(triplet)) {
+			if(subjectIsStopWord(triplet)) {
 				toBeDeleted.add(triplet);
 			}
 		}
 		toBeDeleted.addAll(processTripletsToTrie());
+		tripletSet.removeAll(toBeDeleted);
+	}
+	
+	public void cleanseShortTriples() {
+		List<Triplet> toBeDeleted = new ArrayList<Triplet>();
+		for(Triplet triplet: tripletSet) {
+			if(tripletIsTooShort(triplet)) {
+				toBeDeleted.add(triplet);
+			}
+		}
 		tripletSet.removeAll(toBeDeleted);
 	}
 	
