@@ -6,10 +6,12 @@ import java.util.List;
 public class Keyword {
 	String keyword;
 	List<Triplet> childrenTriplets;
+	List<Category> categories;
 	
 	public Keyword(String keyword) {
 		this.keyword = keyword;
 		childrenTriplets = new ArrayList<Triplet>();
+		categories = new ArrayList<Category>();
 	}
 	
 	public String getKeyword() {
@@ -32,6 +34,14 @@ public class Keyword {
 		childrenTriplets.add(triplet);
 	}
 	
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
 	@Override
 	public String toString() {
 		return keyword;

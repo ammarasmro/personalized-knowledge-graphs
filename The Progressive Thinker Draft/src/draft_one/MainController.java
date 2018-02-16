@@ -70,8 +70,22 @@ public class MainController {
 		
 		for(Keyword keyword: dataManager.getKeywordSet()) {
 			graphDispatcher.addKeyword(keyword, "Design");
-			
 		}
+		
+		dataManager.enrichKeywords();
+		
+		for(Keyword keyword: dataManager.getKeywordSet()) {
+			
+			for(Category category: keyword.getCategories()) {
+				String previous = "";
+				for(String currentLevel: category.getCategoryStructure()) {
+					graphDispatcher.addCategoryLevel(currentLevel, previous);
+					previous = currentLevel;
+				}
+				graphDispatcher.linkKeywordToCategory(keyword.getKeyword(), previous);
+			}
+		}
+		
 		for(Triplet triplet: dataManager.getWordToWordTriplets()) {
 			graphDispatcher.linkKeywordToDefintion(triplet);
 		}

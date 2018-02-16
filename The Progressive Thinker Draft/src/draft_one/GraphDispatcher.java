@@ -157,6 +157,50 @@ public class GraphDispatcher implements AutoCloseable {
         }		
 	}
 	
+	public void addCategoryLevel(String categoryLevel, String previousCategoryLevel) {
+		try ( Session session = driver.session() )
+        {
+            String greeting = session.writeTransaction( new TransactionWork<String>()
+            {
+                @Override
+                public String execute( Transaction tx )
+                {
+                    StatementResult result = tx.run( "MERGE (categoryLevel:CategoryLevel {categoryText: $categoryLevel})\n" + 
+                    		"WITH categoryLevel\n" + 
+                    		"MATCH (categoryLevelPrevious:CategoryLevel {categoryText: $previousCategoryLevel})\n" + 
+                    		"WITH categoryLevelPrevious, categoryLevel\n" + 
+                    		"MERGE (categoryLevel)-[:BELONGSTO]->(categoryLevelPrevious)",
+                            parameters( "categoryLevel", categoryLevel, "previousCategoryLevel", previousCategoryLevel ));
+                    result.consume();
+                    return "Category level added!\n" + categoryLevel;
+                }
+            } );
+            System.out.println( greeting );
+            
+        }		
+	}
+	
+	public void linkKeywordToCategory(String keyword, String categoryLevel) {
+		try ( Session session = driver.session() )
+        {
+            String greeting = session.writeTransaction( new TransactionWork<String>()
+            {
+                @Override
+                public String execute( Transaction tx )
+                {
+                    StatementResult result = tx.run( "MERGE (keyword:Keyword {keywordText: $keyword})\n" + 
+                    		"MERGE (categoryLevel:CategoryLevel {categoryText: $categoryLevel})\n" + 
+                    		"MERGE (keyword)-[:CATEGORIZEDAS]->(categoryLevel)",
+                            parameters( "keyword", keyword, "categoryLevel", categoryLevel ));
+                    result.consume();
+                    return String.format("Category level %s linked to keyword %s!\n", categoryLevel, keyword);
+                }
+            } );
+            System.out.println( greeting );
+            
+        }		
+	}
+	
 	public void linkListOfKeywordsToSubject(String subject, Set<Keyword> keywords) {
 		for(Keyword keyword: keywords) {
 			linkKeywordToSubject(subject, keyword);
