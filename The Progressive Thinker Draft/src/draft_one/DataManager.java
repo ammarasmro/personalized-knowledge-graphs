@@ -186,7 +186,15 @@ public class DataManager {
 		keywordSet.add(keyword);
 	}
 	
+	public void enrichKeywords() {
+		nluClient.initializeForCategoriesExtraction();
+		for(Keyword keyword: keywordSet) {
+			nluClient.enrichKeyword(keyword);
+		}
+	}
+	
 	public void enrichTriplets(Collection<Triplet> collectionOfTriplets) {
+		nluClient.initializeForKeywordsExtraction();
 		for(Triplet triplet: collectionOfTriplets) {
 			System.out.println(String.format("Enriching triplet: \n%s\n", triplet));
 			try {
