@@ -143,8 +143,9 @@ public class GraphDispatcher implements AutoCloseable {
                 @Override
                 public String execute( Transaction tx )
                 {
-                    StatementResult result = tx.run( "MERGE (definition:Definition {definitionText: $object})\n" + 
-                    		"MERGE (keyword:Keyword {keywordText: $subject})\n" + 
+                    StatementResult result = tx.run( "MATCH (keyword:Keyword {keywordText:$subject})\n" +
+                    		"WITH keyword\n" +
+                    		"MERGE (definition:Definition {definitionText: $object})\n" + 
                     		"MERGE (keyword)-[:IS {verb: $verb}]->(definition)",
                             parameters( "subject", triplet.getSubjectTry().getSentence(), "object", triplet.getObjectTry().getSentence(), "verb", triplet.getVerb() ) );
                     result.consume();
