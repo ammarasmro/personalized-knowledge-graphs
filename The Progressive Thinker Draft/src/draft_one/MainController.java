@@ -33,9 +33,15 @@ public class MainController {
 		
 //		dataManager.logTriplets();
 		
-		dataManager.extractWordToWordTriplesFromMainSet();
+		
 		
 		dataManager.cleanseTriplets();
+		
+		dataManager.extractWordToWordTriplesFromMainSet();
+		
+		dataManager.extractKeywordsIntoKeywordsSet();
+		
+		dataManager.cleanseShortTriples();
 		
 		
 		dataManager.logTriplets();
@@ -61,10 +67,13 @@ public class MainController {
 //			}
 //		}
 		
-		dataManager.processTripletsIntoSet();
+		
 		for(Keyword keyword: dataManager.getKeywordSet()) {
 			graphDispatcher.addKeyword(keyword, "Design");
 			
+		}
+		for(Triplet triplet: dataManager.getWordToWordTriplets()) {
+			graphDispatcher.linkKeywordToDefintion(triplet);
 		}
 		for(Triplet triplet: dataManager.getTripletSet()) {
 			graphDispatcher.linkListOfKeywordsToSubject(triplet.getSubjectTry().getSentence(), triplet.getSubjectTry().getKeywords());

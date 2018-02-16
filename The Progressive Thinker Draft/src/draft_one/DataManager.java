@@ -206,13 +206,13 @@ public class DataManager {
 		}
 	}
 	
-	public void processTripletsIntoSet() {
+	public void extractKeywordsIntoKeywordsSet() {
 		for(Triplet triplet: tripletSet) {
-			keywordSet.addAll(extractKeywordFromTriplet(triplet));
+			keywordSet.addAll(extractKeywordsFromTriplet(triplet));
 		}
 	}
 	
-	public List<Keyword> extractKeywordFromTriplet(Triplet triplet){
+	public List<Keyword> extractKeywordsFromTriplet(Triplet triplet){
 		List<Keyword> listOfKeywords = new ArrayList<Keyword>();
 		listOfKeywords.addAll(triplet.getSubjectTry().getKeywords());
 		listOfKeywords.addAll(triplet.getObjectTry().getKeywords());
@@ -234,11 +234,21 @@ public class DataManager {
 	public void cleanseTriplets() {
 		List<Triplet> toBeDeleted = new ArrayList<Triplet>();
 		for(Triplet triplet: tripletSet) {
-			if(subjectIsStopWord(triplet) || tripletIsTooShort(triplet)) {
+			if(subjectIsStopWord(triplet)) {
 				toBeDeleted.add(triplet);
 			}
 		}
 		toBeDeleted.addAll(processTripletsToTrie());
+		tripletSet.removeAll(toBeDeleted);
+	}
+	
+	public void cleanseShortTriples() {
+		List<Triplet> toBeDeleted = new ArrayList<Triplet>();
+		for(Triplet triplet: tripletSet) {
+			if(tripletIsTooShort(triplet)) {
+				toBeDeleted.add(triplet);
+			}
+		}
 		tripletSet.removeAll(toBeDeleted);
 	}
 	

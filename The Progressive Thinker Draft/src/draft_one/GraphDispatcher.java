@@ -135,6 +135,27 @@ public class GraphDispatcher implements AutoCloseable {
         }
     }
 	
+	public void linkKeywordToDefintion(Triplet triplet) {
+		try ( Session session = driver.session() )
+        {
+            String greeting = session.writeTransaction( new TransactionWork<String>()
+            {
+                @Override
+                public String execute( Transaction tx )
+                {
+                    StatementResult result = tx.run( "MERGE (definition:Definition {definitionText: $object})\n" + 
+                    		"MERGE (keyword:Keyword {keywordText: $subject})\n" + 
+                    		"MERGE (keyword)-[:IS {verb: $verb}]->(definition)",
+                            parameters( "subject", triplet.getSubjectTry().getSentence(), "object", triplet.getObjectTry().getSentence(), "verb", triplet.getVerb() ) );
+                    result.consume();
+                    return "Keyword relation added!\n" + triplet;
+                }
+            } );
+            System.out.println( greeting );
+            
+        }		
+	}
+	
 	public void linkListOfKeywordsToSubject(String subject, Set<Keyword> keywords) {
 		for(Keyword keyword: keywords) {
 			linkKeywordToSubject(subject, keyword);
