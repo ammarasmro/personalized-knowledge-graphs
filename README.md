@@ -1,5 +1,7 @@
 # personalized-knowledge-graphs
 
+>This was the first version of my capstone project for school. The second version of this project is in [https://github.com/ammarasmro/ProGBA](ProGBA)
+
 A personal assistant that helps with projects
 
 This project started as an idea last summer, I started researching and experimenting around. I have decided to work on it during the last term of my Master of Engineering program as my capstone project.
