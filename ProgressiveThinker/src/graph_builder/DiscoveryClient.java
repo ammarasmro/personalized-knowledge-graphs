@@ -1,4 +1,4 @@
-package draft_one;
+package graph_builder;
 
 import java.io.File;
 import java.io.IOException;
@@ -62,7 +62,7 @@ public class DiscoveryClient {
 	
 	public String getMockDataFromFile() {
 		String jsonRes = "";
-		Path file = Paths.get("the-file-name.txt");
+		Path file = Paths.get("sample.txt");
 		try {
 			StringBuilder sb = new StringBuilder();
 			for(String line: Files.readAllLines(file, Charset.forName("UTF-8")))

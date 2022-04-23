@@ -1,4 +1,4 @@
-package draft_one;
+package graph_builder;
 
 public class Triplet {
 	

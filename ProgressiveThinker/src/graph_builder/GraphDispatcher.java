@@ -1,4 +1,4 @@
-package draft_one;
+package graph_builder;
 
 import static org.neo4j.driver.v1.Values.parameters;
 
